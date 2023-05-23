@@ -1,0 +1,22 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: rem(15);
+
+  .logoImage {
+    flex: 0 0 rem(54);
+    width: rem(54);
+    height: rem(54);
+  }
+
+  span {
+    font-size: rem(20);
+    line-height: math.div(27, 20);
+    font-weight: 700;
+    color: #11153A;
+  }
+}

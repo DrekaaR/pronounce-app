@@ -1,0 +1,52 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+.companies {
+   background-color: #e3e8fb;
+   padding-top: rem(50);
+   &:not(:last-child) {
+      @include adaptiveValue("padding-bottom", 120, 80);
+   }
+}
+
+.title {
+   font-size: rem(24);
+   line-height: math.div(36, 24);
+   font-weight: 800;
+   color: #11153a;
+   text-align: center;
+
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+   }
+}
+
+.items {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: rem(40);
+   @media (max-width: $mobile) {
+      gap: rem(30);
+   }
+}
+
+.logo {
+   flex: 0 0 rem(140);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: rem(147);
+   height: rem(147);
+
+   img {
+      max-width: 100%;
+   }
+
+   @media (max-width: $mobile) {
+      flex: 0 0 rem(125);
+      width: rem(125);
+      height: rem(125);
+   }
+}

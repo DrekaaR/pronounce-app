@@ -1,0 +1,60 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+.statusBar {
+  position: relative;
+  margin: 0 auto;
+  @include adaptiveValue("width", 240, 100);
+}
+
+
+.body {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: rem(30);
+  @include adaptiveValue("height", 30, 20);
+  background-color: #c2cfff;
+}
+
+
+.progress {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.2s ease 0.2s;
+}
+
+
+.percent {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: calc(100% + rem(10));
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include adaptiveValue("height", 30, 20);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 rem(5);
+  @include adaptiveValue("font-size", 19, 12);
+  @include adaptiveValue("border-radius", 10, 5);
+  @include adaptiveValue("min-width", 64, 34);
+  transition: left 0.2s ease 0.2s;
+
+  .arrow {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    @include adaptiveValue("width", 10, 5);
+    @include adaptiveValue("height", 10, 5);
+  }
+}

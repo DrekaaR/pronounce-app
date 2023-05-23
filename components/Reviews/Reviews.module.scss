@@ -1,0 +1,150 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+
+.slider {
+  position: relative;
+  background-color: #e3e8fb;
+  @include adaptiveValue("padding-top", 80, 60);
+  @include adaptiveValue("padding-bottom", 80, 60);
+
+  .wrapper {
+    position: relative;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    column-gap: rem(30);
+    @media (min-width: $mobile) {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: calc(100% + rem(200));
+      left: rem(-100);
+      margin: 0 auto;
+    }
+    @media (max-width: em(1280)) {
+      width: 103%;
+      left: -1.5%;
+    }
+    @media (max-width: $mobile) {
+      justify-content: center;
+      margin-top: rem(30);
+    }
+
+    button {
+      pointer-events: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #cbd4fa;
+      color: #5270ee;
+
+      border-radius: 50%;
+      width: rem(60);
+      height: rem(60);
+      font-size: rem(21);
+      transition: transform 0.1s ease 0s, all 0.2s ease 0s;
+      will-change: transform;
+
+      svg {
+        width: rem(25);
+        height: auto;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &:focus {
+        &::before {
+          box-shadow: 0 0 8px rgba(82, 113, 238, 0.5);
+        }
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: #c6cff4;
+        }
+      }
+
+    }
+  }
+}
+
+
+.title {
+  @include adaptiveValue("font-size", 32, 28);
+  font-weight: 800;
+  line-height: math.div(42, 32);
+  color: #11153a;
+  text-align: center;
+
+  &:not(:last-child) {
+    margin-bottom: em(40, 32);
+  }
+}
+
+
+.item {
+  background-color: #ffffff;
+  @include adaptiveValue("border-radius", 40, 30);
+  overflow: hidden;
+  padding: rem(40);
+  @media (max-width: $mobile) {
+    padding: rem(30) rem(20);
+  }
+  // ===================
+  .itemTitle {
+    color: #11153a;
+    font-size: rem(21);
+    line-height: math.div(32, 21);
+    font-weight: 700;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  // ===================
+  .itemText {
+    line-height: math.div(28, 19);
+    font-weight: 500;
+    color: #373a5a;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+
+    p {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: rem(-10);
+      left: rem(-10);
+      height: rem(64);
+      width: rem(64);
+      background: url("../../assets/images/icons/quottes.svg") 0 0 no-repeat;
+    }
+  }
+
+  // ===================
+  .itemAuthor {
+    font-weight: 700;
+    line-height: math.div(28, 19);
+    color: #373a5a;
+  }
+}
+

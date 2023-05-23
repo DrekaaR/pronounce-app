@@ -1,0 +1,101 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+.footer {
+   background-color: #1c3486;
+   @include adaptiveValue("padding-top", 60, 40);
+}
+
+.main {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   column-gap: rem(30);
+   row-gap: rem(20);
+   justify-content: space-between;
+
+   &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+}
+
+
+.bottom {
+   display: flex;
+   justify-content: space-between;
+   column-gap: rem(30);
+   row-gap: rem(20);
+   padding: rem(20) 0;
+   border-top: rem(1) solid rgba(255, 255, 255, 0.15);
+   @media (max-width: $mobile) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .info {
+      display: flex;
+      align-items: center;
+      column-gap: rem(25);
+      @include adaptiveValue("font-size", 18, 16);
+      line-height: math.div(27, 18);
+      color: #dfe2fc;
+      @media (max-width: $mobile) {
+         text-align: center;
+         flex-direction: column;
+         row-gap: rem(10);
+         order: 2;
+      }
+
+      span {
+         @media (max-width: $mobile) {
+            order: 2;
+         }
+      }
+
+      a {
+         transition: color 0.2s ease 0s;
+         @media (any-hover: hover) {
+            &:hover {
+               color: #fff;
+            }
+         }
+         @media (max-width: $mobile) {
+            order: 1;
+         }
+      }
+   }
+}
+
+.socials {
+   display: flex;
+   column-gap: rem(15);
+   @media (max-width: $mobile) {
+      order: 1;
+   }
+
+   a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: rem(36);
+      width: rem(36);
+      flex: 0 0 rem(36);
+      background-color: #35488d;
+      border-radius: rem(10);
+      fill: rgba(255, 255, 255, 0.7);
+      transition: all 0.2s ease 0s;
+      @media (any-hover: hover) {
+         &:hover {
+            fill: #fff;
+            background-color: #4c60a7;
+         }
+      }
+   }
+}
+
+
+
+

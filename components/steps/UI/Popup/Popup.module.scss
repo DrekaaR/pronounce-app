@@ -1,0 +1,132 @@
+@use "sass:math";
+@import "src/styles/config";
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap');
+
+.wrapper {
+   transition: all 0.2s ease 0s;
+
+   position: absolute;
+   z-index: 2;
+   top: rem(50);
+   width: 80%;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   padding-top: rem(50);
+   overflow: hidden;
+   background: #ffffff;
+   box-shadow: 0px rem(20) 50px rgba(0, 0, 0, 0.2);
+   border-radius: rem(20);
+
+   @media (max-width: $mobile) {
+      width: 90%;
+   }
+}
+
+.closeButton {
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: rem(10);
+   color: #cbd4fa;
+   font-size: rem(22);
+   transition: color 0.2s ease 0s;
+   &:focus {
+      color: #b2bff9;
+   }
+   @media (max-width: $mobileSmall) {
+      padding: rem(10);
+   }
+   @media (any-hover: hover) {
+      &:hover {
+         color: #c2ccf9;
+      }
+   }
+}
+
+.header {
+   padding: 0 rem(40);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   row-gap: rem(20);
+   column-gap: rem(30);
+   flex-wrap: wrap;
+   &:not(:last-child) {
+      margin-bottom: rem(50);
+   }
+   @media (max-width: $mobileSmall) {
+      padding: 0 rem(20);
+   }
+}
+
+.actions {
+   display: flex;
+   column-gap: rem(12);
+   button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      flex: 0 0 rem(40);
+      width: rem(40);
+      height: rem(40);
+      border-radius: 50%;
+      font-size: rem(22);
+      background-color: #cbd4fa;
+      color: #5270ee;
+      transition: all 0.2s ease 0s;
+      &:focus {
+         box-shadow: 0 0 8px rgba(82, 113, 238, 0.5);
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            background-color: #c6cff4;
+         }
+      }
+   }
+}
+
+.table {
+   background-color: #f1f4ff;
+   padding-bottom: rem(5);
+   .tableHeader {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      background-color: #5270ee;
+      padding: rem(15) rem(15);
+      color: #fff;
+      justify-items: center;
+      @include adaptiveValue("font-size", 19, 16);
+      line-height: math.div(28, 19);
+      font-weight: 500;
+   }
+
+   .tableRate {
+      text-transform: capitalize;
+      transition: color 0.2s ease 0s;
+   }
+
+   .tableBody {
+      @include adaptiveValue("max-height", 300, 220);
+      overflow: auto;
+      font-weight: 800;
+   }
+
+   .tableItem {
+      padding: rem(15) rem(15);
+      @include adaptiveValue("font-size", 19, 16);
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 40% 60%;
+      background-color: #f1f4ff;
+      .tableSound {
+         font-family: "Gentium Plus";
+         font-weight: 700;
+      }
+      &:not(:last-child) {
+         border-bottom: rem(1) solid #dee5fc;
+      }
+   }
+}

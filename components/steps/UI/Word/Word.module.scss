@@ -1,0 +1,80 @@
+@use "sass:math";
+@import "src/styles/config";
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
+
+.word {
+   text-align: center;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content: center;
+   column-gap: rem(10);
+
+   &.absolute {
+      position: absolute;
+   }
+
+   .wordTitle {
+      display: flex;
+      font-weight: 800;
+      color: #11153a;
+      @include adaptiveValue("font-size", 32, 24);
+      line-height: math.div(32, 24);
+
+      &:not(:last-child) {
+         margin-bottom: rem(5);
+      }
+
+      .long-word & {
+         @include adaptiveValue("font-size", 32, 18);
+      }
+   }
+
+   button {
+      position: relative;
+      top: rem(-2);
+      color: #5270ee;
+      font-size: rem(24);
+      width: rem(40);
+      height: rem(40);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #cbd4fa;
+      transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s, transform 0.1s ease 0s;
+      will-change: transform;
+      border: 1px solid transparent;
+
+      &:active {
+         transform: scale(0.95);
+      }
+
+      &:focus {
+         border-color: #5d78ec;
+      }
+
+      @media (any-hover: hover) {
+         &:hover {
+            background-color: #c7cef3;
+         }
+      }
+   }
+}
+
+.transcription {
+   flex: 1 1 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   column-gap: rem(10);
+   font-family: "Gentium Plus";
+
+   font-weight: 800;
+   color: #899be3;
+   @include adaptiveValue("font-size", 21, 18);
+
+   .long-word & {
+      @include adaptiveValue("font-size", 21, 14);
+   }
+}

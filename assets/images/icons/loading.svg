@@ -1,0 +1,10 @@
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" style="margin:auto;display:block" viewBox="0 0 40 40"
+         preserveAspectRatio="xMidYMid">
+        <circle cx="20" cy="20" fill="none" stroke="#5270EE" stroke-width="4" r="16"
+                stroke-dasharray=" 75.93361431346415 66.97787143782138">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+                              values="0 20 20;360 20 20" keyTimes="0;1"/>
+        </circle>
+    </svg>
+</span>

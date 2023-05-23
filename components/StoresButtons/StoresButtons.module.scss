@@ -1,0 +1,68 @@
+@use "sass:math";
+@import "src/styles/config";
+
+.stores {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: rem(10);
+}
+
+.storesBlock{
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+   gap: rem(10);
+   .storesItem{
+      display: inline-flex;
+      width: auto;
+      flex: 1 1 auto;
+   }
+}
+
+.storesItem {
+   display: block;
+   border-radius: rem(3);
+   height: rem(55);
+   flex: 0 1 rem(216);
+   will-change: transform;
+   &[disabled] {
+      position: relative;
+      opacity: 1;
+      img{
+         opacity: 0.5;
+      }
+      &::after {
+         position: absolute;
+         z-index: 2;
+         top: -10%;
+         right: -2%;
+         content: "coming soon";
+         text-transform: uppercase;
+         background: #DF4E4E;
+         border-radius: 5px;
+         color: #ffffff;
+         font-size: 50%;
+         font-weight: 700;
+         line-height: math.div(14, 21);
+         letter-spacing: 0.1em;
+         padding: rem(5) rem(8);
+         display: flex;
+         justify-content:center;
+         align-items: center;
+      }
+   }
+
+   img {
+      height: 100%;
+      max-width: 100%;
+   }
+
+   @media (max-width: $mobile) {
+      text-align: center;
+   }
+   @media (max-width: $mobileSmall) {
+      height: unset;
+      flex: 0 1 rem(192);
+   }
+}

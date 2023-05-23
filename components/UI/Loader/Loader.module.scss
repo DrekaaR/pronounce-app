@@ -1,0 +1,22 @@
+@use "sass:math";
+@import "src/styles/config";
+
+
+.loader{
+   background-color: rgba(255, 255, 255, 0.7);
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   mix-blend-mode: darken;
+   font-size: rem(10);
+   span{
+      width: rem(40);
+      height: rem(40);
+   }
+   &.small {
+      span{
+         width: rem(20);
+         height: rem(20);
+      }
+   }
+}
